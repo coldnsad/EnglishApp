@@ -9,20 +9,76 @@
     android:background="@drawable/main_bg"
     tools:context=".MainActivity">
 
-    <TextView
-        android:id="@+id/textView"
-        android:layout_width="163dp"
-        android:layout_height="wrap_content"
-        android:text="@string/english"
-        android:textAlignment="center"
-        android:textColor="#757575"
-        android:textSize="100px"/>
+    <LinearLayout
+        android:layout_width="380dp"
+        android:layout_height="85dp"
+        android:layout_marginTop="10dp"
+        android:background="@drawable/rounded"
+        android:gravity="center_horizontal"
+        android:orientation="vertical">
 
-    <Button
-        android:id="@+id/button"
-        android:layout_width="120dp"
-        android:layout_height="55dp"
-        android:layout_marginTop="0dp"
-        android:text="Button"/>
+        <TextView
+            android:id="@+id/textHeaderSearch"
+            android:layout_width="163dp"
+            android:layout_height="wrap_content"
+            android:text="Search"
+            android:textAlignment="center"
+            android:textColor="@color/white"
+            android:textSize="100px" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="444dp"
+        android:layout_marginTop="40dp"
+        android:alpha="0.7"
+        android:background="@drawable/rounded"
+        android:gravity="center_horizontal"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/textMainSearch"
+            android:layout_width="163dp"
+            android:layout_height="wrap_content"
+            android:text="Main Content"
+            android:textAlignment="center"
+            android:textColor="@color/white"
+            android:textSize="100px" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        style="@style/TextIcon"
+        android:layout_width="match_parent"
+        android:layout_height="70dp"
+        android:layout_marginTop="20dp"
+        android:gravity="center_horizontal"
+        android:orientation="horizontal">
+
+        <Button
+            android:id="@+id/buttonMain"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:drawableTop="@drawable/book"
+            android:text="Словарь" />
+
+        <Button
+            android:id="@+id/buttonDictionary"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Button"/>
+        <Button
+            android:id="@+id/buttonSettings"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Button"/>
+        <Button
+            android:id="@+id/buttonProfile"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Button"/>
+
+    </LinearLayout>
 
 </LinearLayout>

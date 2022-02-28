@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <style name="TextIcon">
+        <item name="fontFamily">@font/font_awesome</item>
+    </style>
+</resources>
