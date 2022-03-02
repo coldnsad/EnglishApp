@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
@@ -30,7 +31,7 @@
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="444dp"
+        android:layout_height="424dp"
         android:layout_marginTop="40dp"
         android:alpha="0.7"
         android:background="@drawable/rounded"
@@ -51,7 +52,7 @@
     <LinearLayout
         style="@style/TextIcon"
         android:layout_width="match_parent"
-        android:layout_height="70dp"
+        android:layout_height="86dp"
         android:layout_marginTop="20dp"
         android:gravity="center_horizontal"
         android:orientation="horizontal">
@@ -60,24 +61,37 @@
             android:id="@+id/buttonMain"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:drawableTop="@drawable/book"
-            android:text="Словарь" />
+            android:background="@android:color/transparent"
+            android:drawableTop="@drawable/ic_baseline_menu_book_24"
+            android:text="Словарь"
+            android:textSize="6pt" />
 
         <Button
             android:id="@+id/buttonDictionary"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Button"/>
+            android:background="@android:color/transparent"
+            android:drawableTop="@drawable/ic_baseline_menu_book_24"
+            android:text="Словарь"
+            android:textSize="6pt" />
+
         <Button
             android:id="@+id/buttonSettings"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Button"/>
+            android:background="@android:color/transparent"
+            android:drawableTop="@drawable/ic_baseline_menu_book_24"
+            android:text="Словарь"
+            android:textSize="6pt" />
+
         <Button
             android:id="@+id/buttonProfile"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Button"/>
+            android:background="@android:color/transparent"
+            android:drawableTop="@drawable/ic_baseline_menu_book_24"
+            android:text="Словарь"
+            android:textSize="6pt" />
 
     </LinearLayout>
 
