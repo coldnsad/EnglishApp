@@ -4,8 +4,10 @@
     <option name="filePathToZoomLevelMap">
       <map>
         <entry key="..\:/Users/vladi/AndroidStudioProjects/EnglishApp/app/src/main/res/drawable/book.xml" value="0.1415" />
+        <entry key="..\:/Users/vladi/AndroidStudioProjects/EnglishApp/app/src/main/res/drawable/button_back.xml" value="0.231" />
         <entry key="..\:/Users/vladi/AndroidStudioProjects/EnglishApp/app/src/main/res/drawable/button_back_opacity.xml" value="0.1935" />
         <entry key="..\:/Users/vladi/AndroidStudioProjects/EnglishApp/app/src/main/res/drawable/ic_baseline_menu_book_24.xml" value="0.1935" />
+        <entry key="..\:/Users/vladi/AndroidStudioProjects/EnglishApp/app/src/main/res/drawable/ic_baseline_menu_book_active_24.xml" value="0.231" />
         <entry key="..\:/Users/vladi/AndroidStudioProjects/EnglishApp/app/src/main/res/drawable/ic_launcher_background.xml" value="0.1935" />
         <entry key="..\:/Users/vladi/AndroidStudioProjects/EnglishApp/app/src/main/res/drawable/rounded.xml" value="0.1935" />
         <entry key="..\:/Users/vladi/AndroidStudioProjects/EnglishApp/app/src/main/res/drawable/style.xml" value="0.1935" />

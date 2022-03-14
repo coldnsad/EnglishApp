@@ -50,21 +50,21 @@
     </LinearLayout>
 
     <LinearLayout
-        style="@style/TextIcon"
         android:layout_width="match_parent"
         android:layout_height="86dp"
         android:layout_marginTop="20dp"
-        android:gravity="center_horizontal"
-        android:orientation="horizontal">
+        android:gravity="center"
+        android:orientation="horizontal" >
 
         <Button
             android:id="@+id/buttonMain"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:background="@android:color/transparent"
-            android:drawableTop="@drawable/ic_baseline_menu_book_24"
+            android:drawableTop="@drawable/ic_baseline_menu_book_active_24"
             android:text="@string/main_button"
-            android:textSize="6pt" />
+            android:textSize="8pt"
+            android:textColor="#FFFFFF"/>
 
         <Button
             android:id="@+id/buttonDictionary"
@@ -73,8 +73,9 @@
             android:background="@android:color/transparent"
             android:drawableTop="@drawable/ic_baseline_menu_book_24"
             android:text="@string/dictionary_button"
-            android:textSize="6pt"
-            android:onClick="openDictionary" />
+            android:textSize="8pt"
+            android:onClick="openDictionary"
+            android:textColor="#80FFFFFF"/>
 
         <Button
             android:id="@+id/buttonSettings"
@@ -82,9 +83,10 @@
             android:layout_height="wrap_content"
             android:background="@android:color/transparent"
             android:drawableTop="@drawable/ic_baseline_menu_book_24"
+            android:onClick="openSettings"
             android:text="@string/settings_button"
-            android:textSize="6pt"
-            android:onClick="openSettings" />
+            android:textSize="8pt"
+            android:textColor="#80FFFFFF"/>
 
 
     </LinearLayout>
