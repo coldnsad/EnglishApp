@@ -2,5 +2,8 @@
     <string name="app_name">EnglishApp</string>
     <string name="english">English!</string>
     <string name="fa_icon_book">\uf02d!</string>
+    <string name="main_button">Главная</string>
+    <string name="dictionary_button">Словарь</string>
+    <string name="settings_button">Настройки</string>
 
 </resources>

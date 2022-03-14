@@ -42,10 +42,10 @@
             android:id="@+id/textMainSearch"
             android:layout_width="163dp"
             android:layout_height="wrap_content"
-            android:text="Main Content"
+            android:text="Word List"
             android:textAlignment="center"
             android:textColor="@color/white"
-            android:textSize="45sp" />
+            android:textSize="50dp" />
 
     </LinearLayout>
 
@@ -64,7 +64,8 @@
             android:background="@android:color/transparent"
             android:drawableTop="@drawable/ic_baseline_menu_book_24"
             android:text="@string/main_button"
-            android:textSize="6pt" />
+            android:textSize="6pt"
+            android:onClick="openMain"/>
 
         <Button
             android:id="@+id/buttonDictionary"
@@ -73,8 +74,7 @@
             android:background="@android:color/transparent"
             android:drawableTop="@drawable/ic_baseline_menu_book_24"
             android:text="@string/dictionary_button"
-            android:textSize="6pt"
-            android:onClick="openDictionary" />
+            android:textSize="6pt" />
 
         <Button
             android:id="@+id/buttonSettings"
@@ -85,7 +85,6 @@
             android:text="@string/settings_button"
             android:textSize="6pt"
             android:onClick="openSettings" />
-
 
     </LinearLayout>
 
