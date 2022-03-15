@@ -8,7 +8,7 @@
     android:orientation="vertical"
     android:gravity="center_horizontal"
     android:background="@drawable/main_bg"
-    tools:context=".MainActivity">
+    tools:context=".SettingsActivity">
 
     <LinearLayout
         android:layout_width="380dp"
@@ -85,7 +85,6 @@
             android:layout_height="wrap_content"
             android:background="@android:color/transparent"
             android:drawableTop="@drawable/ic_baseline_menu_book_active_24"
-            android:onClick="openSettings"
             android:text="@string/settings_button"
             android:textSize="8pt"
             android:textColor="#FFFFFF"/>

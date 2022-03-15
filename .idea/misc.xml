@@ -11,9 +11,11 @@
         <entry key="..\:/Users/vladi/AndroidStudioProjects/EnglishApp/app/src/main/res/drawable/ic_launcher_background.xml" value="0.1935" />
         <entry key="..\:/Users/vladi/AndroidStudioProjects/EnglishApp/app/src/main/res/drawable/rounded.xml" value="0.1935" />
         <entry key="..\:/Users/vladi/AndroidStudioProjects/EnglishApp/app/src/main/res/drawable/style.xml" value="0.1935" />
-        <entry key="..\:/Users/vladi/AndroidStudioProjects/EnglishApp/app/src/main/res/layout/activity_dictionary.xml" value="0.26293436293436295" />
-        <entry key="..\:/Users/vladi/AndroidStudioProjects/EnglishApp/app/src/main/res/layout/activity_main.xml" value="0.26293436293436295" />
-        <entry key="..\:/Users/vladi/AndroidStudioProjects/EnglishApp/app/src/main/res/layout/activity_settings.xml" value="0.26293436293436295" />
+        <entry key="..\:/Users/vladi/AndroidStudioProjects/EnglishApp/app/src/main/res/layout/activity_dictionary.xml" value="0.1" />
+        <entry key="..\:/Users/vladi/AndroidStudioProjects/EnglishApp/app/src/main/res/layout/activity_main.xml" value="0.199609375" />
+        <entry key="..\:/Users/vladi/AndroidStudioProjects/EnglishApp/app/src/main/res/layout/activity_settings.xml" value="0.199609375" />
+        <entry key="..\:/Users/vladi/AndroidStudioProjects/EnglishApp/app/src/main/res/layout/fragment_category_list.xml" value="0.199609375" />
+        <entry key="..\:/Users/vladi/AndroidStudioProjects/EnglishApp/app/src/main/res/layout/fragment_word_list.xml" value="0.199609375" />
       </map>
     </option>
   </component>

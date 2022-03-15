@@ -8,7 +8,7 @@
     android:orientation="vertical"
     android:gravity="center_horizontal"
     android:background="@drawable/main_bg"
-    tools:context=".MainActivity">
+    tools:context=".DictionaryActivity">
 
     <LinearLayout
         android:layout_width="380dp"
@@ -38,14 +38,26 @@
         android:gravity="center_horizontal"
         android:orientation="vertical">
 
-        <TextView
-            android:id="@+id/textMainSearch"
-            android:layout_width="163dp"
-            android:layout_height="wrap_content"
-            android:text="Word List"
-            android:textAlignment="center"
-            android:textColor="@color/white"
-            android:textSize="50dp" />
+        <com.google.android.material.tabs.TabLayout
+            android:id="@+id/tabLayout"
+            android:layout_width="match_parent"
+            android:layout_height="78dp">
+
+            <com.google.android.material.tabs.TabItem
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Список слов" />
+
+            <com.google.android.material.tabs.TabItem
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Категории" />
+        </com.google.android.material.tabs.TabLayout>
+
+       <androidx.viewpager2.widget.ViewPager2
+           android:id="@+id/viewPager"
+           android:layout_width="match_parent"
+           android:layout_height="wrap_content" />
 
     </LinearLayout>
 
