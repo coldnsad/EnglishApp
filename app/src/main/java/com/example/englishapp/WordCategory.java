@@ -2,13 +2,19 @@ package com.example.englishapp;
 
 public class WordCategory {
 
-    private String name;
+    private final String name;
+    private final String image;
 
-    WordCategory(String name){
-        this.name = name;
+    public WordCategory(String name, String image) {
+        this.image = image;
+        this.name  = name;
     }
 
     public String getName(){
-        return this.name;
+        return name;
+    }
+
+    public String getImage(){
+        return image;
     }
 }

@@ -13,7 +13,7 @@ import android.view.ViewGroup;
  * Use the  factory method to
  * create an instance of this fragment.
  */
-public class wordList extends Fragment {
+public class WordList extends Fragment {
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,

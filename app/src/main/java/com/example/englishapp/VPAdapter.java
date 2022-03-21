@@ -18,11 +18,11 @@ public class VPAdapter extends FragmentStateAdapter {
 
         switch (position){
             case 0:
-                return new wordList();
+                return new WordList();
             case 1:
-                return new categoryList();
+                return new CategoryList();
             default:
-                return new wordList();
+                return new WordList();
         }
     }
 
