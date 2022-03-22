@@ -1,5 +1,7 @@
 package com.example.englishapp;
 
+import android.database.Cursor;
+import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
@@ -9,6 +11,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.SimpleCursorAdapter;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -21,12 +24,21 @@ import java.util.List;
 public class CategoryList extends Fragment {
 
     private RecyclerView recyclerView;
+    private List<WordCategory> categories;
+
+    //Fields for work with database
+    private DatabaseHelper databaseHelper;
+    private SQLiteDatabase db;
+    private Cursor query;
+    private String category_name;
+
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
 
         View view = inflater.inflate(R.layout.fragment_category_list, container, false);
 
+        databaseHelper = new DatabaseHelper(view.getContext());
         // Creating RecyclerView in this fragment
         recyclerView = view.findViewById(R.id.recyclerview);
         recyclerView.setHasFixedSize(true);
@@ -36,17 +48,28 @@ public class CategoryList extends Fragment {
         return view;
     }
 
-    private static List<WordCategory> GenerateCategories() {
-        List<WordCategory> categories = new ArrayList<>();
-        categories.add(new WordCategory("cat123123123123123123213124124124", "image1"));
-        categories.add(new WordCategory("cat2", "image1"));
-        categories.add(new WordCategory("cat3", "image1"));
-        categories.add(new WordCategory("cat4", "image1"));
-        categories.add(new WordCategory("cat5", "image1"));
-        categories.add(new WordCategory("cat6", "image1"));
-        categories.add(new WordCategory("cat7", "image1"));
-        categories.add(new WordCategory("cat8", "image1"));
-        categories.add(new WordCategory("cat9", "image1"));
+    private List<WordCategory> GenerateCategories() {
+
+        categories = new ArrayList<>();
+
+        db = databaseHelper.getReadableDatabase();
+        query =  db.rawQuery("select * from "+ DatabaseHelper.TABLE_CATEGORIES, null);
+
+        while (query.moveToNext()){
+            category_name = query.getString(1);
+            categories.add(new WordCategory(category_name, "image1"));
+        }
+
+
+       /* categories.add(new WordCategory("Category1", "image1"));
+        categories.add(new WordCategory("Category2", "image1"));
+        categories.add(new WordCategory("Category3", "image1"));
+        categories.add(new WordCategory("Category4", "image1"));
+        categories.add(new WordCategory("Category5", "image1"));
+        categories.add(new WordCategory("Category6", "image1"));
+        categories.add(new WordCategory("Category7", "image1"));
+        categories.add(new WordCategory("Category8", "image1"));
+        categories.add(new WordCategory("Category9", "image1"));*/
 
         return categories;
     }
