@@ -16,18 +16,23 @@ public class VPAdapter extends FragmentStateAdapter {
     @Override
     public Fragment createFragment(int position) {
 
-        switch (position){
-            case 0:
-                return new WordList();
-            case 1:
-                return new CategoryList();
-            default:
-                return new WordList();
+        if(position == 0){
+            return new WordListFragment();
         }
+        return new CategoryListFragment();
+        /*switch (position){
+            case 0:
+                return new WordListFragment();
+            case 1:
+                return new CategoryListFragment();
+            default:
+                return new WordListFragment();
+        }*/
     }
 
     @Override
     public int getItemCount() {
         return 2;
     }
+
 }

@@ -23,7 +23,7 @@ public class WordCategoryAdapter extends RecyclerView.Adapter<WordCategoryAdapte
         private TextView view;
         public WordCategoryHolder(@NonNull View itemView) {
             super(itemView);
-            view = itemView.findViewById(R.id.randomText);
+            view = itemView.findViewById(R.id.category_name);
         }
 
         public TextView getView(){
@@ -48,7 +48,7 @@ public class WordCategoryAdapter extends RecyclerView.Adapter<WordCategoryAdapte
     @Override
     public WordCategoryHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
 
-        View view = LayoutInflater.from(parent.getContext()).inflate(viewType, parent, false);
+        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.item_category, parent, false);
         return new WordCategoryHolder(view);
     }
 
@@ -56,7 +56,6 @@ public class WordCategoryAdapter extends RecyclerView.Adapter<WordCategoryAdapte
     public void onBindViewHolder(@NonNull WordCategoryHolder holder, int position) {
         WordCategory wordCategory = categories.get(position);
         holder.getView().setText(wordCategory.getName());
-        /*holder.getView().setText(String.valueOf(random.nextInt()));*/
     }
 
     @Override

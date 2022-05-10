@@ -6,11 +6,11 @@
     android:layout_height="wrap_content">
 
         <TextView
-            android:id="@+id/category_name"
+            android:id="@+id/word_name"
             android:layout_margin="20dp"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            tools:text="Category name here"
+            tools:text="Word name here"
             android:textSize="30sp"
             android:paddingBottom="50dp"/>
 </LinearLayout>

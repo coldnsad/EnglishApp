@@ -22,6 +22,10 @@ public class DictionaryActivity extends AppCompatActivity implements TabLayout.O
 
         tabLayout = findViewById(R.id.tabLayout);
         viewPager2 = findViewById(R.id.viewPager);
+
+        tabLayout.addTab(tabLayout.newTab().setText("Слова"));
+        tabLayout.addTab(tabLayout.newTab().setText("Категории"));
+
         FragmentManager fm = getSupportFragmentManager();
         VPAdapter adapter = new VPAdapter(fm, getLifecycle());
         viewPager2.setAdapter(adapter);
@@ -34,7 +38,6 @@ public class DictionaryActivity extends AppCompatActivity implements TabLayout.O
             }
         });
     }
-
 
     @Override
     public void onTabSelected(TabLayout.Tab tab) {

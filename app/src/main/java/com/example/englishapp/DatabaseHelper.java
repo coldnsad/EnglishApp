@@ -31,18 +31,30 @@ public class DatabaseHelper extends SQLiteOpenHelper {
     @Override
     public void onCreate(SQLiteDatabase db) {
 
+        //Categories table
         //Create Categories table
         db.execSQL("CREATE TABLE "+ TABLE_CATEGORIES +" (" + COLUMN_CATEGORY_ID
                 + " INTEGER PRIMARY KEY AUTOINCREMENT," + COLUMN_CATEGORY_NAME
                 + " TEXT);");
-        // добавление начальных данных
+        // Inserting data to the Categories table
         db.execSQL("INSERT INTO "+ TABLE_CATEGORIES +" (" + COLUMN_CATEGORY_NAME + ") "
                 + "VALUES ('Города'), ('Животные'), ('Глаголы'), ('Существительные');");
-        //END Create Categories table
+        //END Categories table
+
+        //Words table
+        //Create Words table
+        db.execSQL("CREATE TABLE "+ TABLE_WORDS +" (" + COLUMN_WORD_ID
+                + " INTEGER PRIMARY KEY AUTOINCREMENT," + COLUMN_WORD_NAME
+                + " TEXT);");
+        // Inserting data to the Words table
+        db.execSQL("INSERT INTO "+ TABLE_WORDS +" (" + COLUMN_WORD_NAME + ") "
+                + "VALUES ('To run'), ('To eat'), ('Current'), ('Apple');");
+        //END Words table
     }
     @Override
     public void onUpgrade(SQLiteDatabase db, int oldVersion,  int newVersion) {
         db.execSQL("DROP TABLE IF EXISTS "+TABLE_CATEGORIES);
+        db.execSQL("DROP TABLE IF EXISTS "+TABLE_WORDS);
         onCreate(db);
     }
 

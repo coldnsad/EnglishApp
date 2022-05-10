@@ -11,7 +11,6 @@ import androidx.recyclerview.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.SimpleCursorAdapter;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -21,7 +20,7 @@ import java.util.List;
  * Use the  factory method to
  * create an instance of this fragment.
  */
-public class CategoryList extends Fragment {
+public class CategoryListFragment extends Fragment {
 
     private RecyclerView recyclerView;
     private List<WordCategory> categories;
@@ -40,9 +39,8 @@ public class CategoryList extends Fragment {
 
         databaseHelper = new DatabaseHelper(view.getContext());
         // Creating RecyclerView in this fragment
-        recyclerView = view.findViewById(R.id.recyclerview);
-        recyclerView.setHasFixedSize(true);
-        recyclerView.setLayoutManager(new LinearLayoutManager(view.getContext()));
+        recyclerView = view.findViewById(R.id.categoryRecyclerView);
+        recyclerView.setLayoutManager(new LinearLayoutManager(getActivity()));
         recyclerView.setAdapter(new WordCategoryAdapter(GenerateCategories()));
 
         return view;
@@ -59,17 +57,6 @@ public class CategoryList extends Fragment {
             category_name = query.getString(1);
             categories.add(new WordCategory(category_name, "image1"));
         }
-
-
-       /* categories.add(new WordCategory("Category1", "image1"));
-        categories.add(new WordCategory("Category2", "image1"));
-        categories.add(new WordCategory("Category3", "image1"));
-        categories.add(new WordCategory("Category4", "image1"));
-        categories.add(new WordCategory("Category5", "image1"));
-        categories.add(new WordCategory("Category6", "image1"));
-        categories.add(new WordCategory("Category7", "image1"));
-        categories.add(new WordCategory("Category8", "image1"));
-        categories.add(new WordCategory("Category9", "image1"));*/
 
         return categories;
     }
