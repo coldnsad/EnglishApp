@@ -33,19 +33,16 @@
         android:layout_width="match_parent"
         android:layout_height="424dp"
         android:layout_marginTop="40dp"
+        android:paddingTop="20dp"
         android:alpha="0.7"
         android:background="@drawable/rounded"
         android:gravity="center_horizontal"
         android:orientation="vertical">
 
-        <TextView
-            android:id="@+id/textMainSearch"
-            android:layout_width="163dp"
-            android:layout_height="wrap_content"
-            android:text="Main Content"
-            android:textAlignment="center"
-            android:textColor="@color/white"
-            android:textSize="45sp" />
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/topicRecyclerView"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"/>
 
     </LinearLayout>
 
@@ -87,8 +84,6 @@
             android:text="@string/settings_button"
             android:textSize="8pt"
             android:textColor="#80FFFFFF"/>
-
-
     </LinearLayout>
 
 </LinearLayout>

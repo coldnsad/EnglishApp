@@ -3,14 +3,17 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:orientation="horizontal"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content">
+    android:layout_height="wrap_content"
+    android:layout_marginBottom="10dp"
+    android:background="@drawable/recycler_view_item_bg">
 
         <TextView
             android:id="@+id/word_name"
             android:layout_margin="20dp"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            tools:text="Word name here"
-            android:textSize="30sp"
-            android:paddingBottom="50dp"/>
+            android:paddingBottom="20dp"
+            android:textStyle="bold"
+            android:textSize="40sp"
+            tools:text="Word name here"/>
 </LinearLayout>
