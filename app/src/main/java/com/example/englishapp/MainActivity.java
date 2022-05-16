@@ -1,6 +1,9 @@
 package com.example.englishapp;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentManager;
+import androidx.fragment.app.FragmentTransaction;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -15,7 +18,7 @@ import android.widget.Toast;
 import java.util.ArrayList;
 import java.util.List;
 
-public class MainActivity extends AppCompatActivity {
+public class MainActivity extends AppCompatActivity implements TopicListFragment.OnFragmentSendDataListener {
 
     RecyclerView recyclerView;
     List<Topic> topics;
@@ -29,9 +32,9 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        databaseHelper = new DatabaseHelper(getApplicationContext());
+        replaceFragment(new TopicListFragment());
         // Creating RecyclerView
-        recyclerView = findViewById(R.id.topicRecyclerView);
+       /* recyclerView = findViewById(R.id.topicRecyclerView);
 
         TopicAdapter.OnTopicClickListener topicClickListener = new TopicAdapter.OnTopicClickListener() {
             @Override
@@ -43,20 +46,28 @@ public class MainActivity extends AppCompatActivity {
         };
 
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
-        recyclerView.setAdapter(new TopicAdapter(GenerateTopics(), topicClickListener));
+        recyclerView.setAdapter(new TopicAdapter(GenerateTopics(), topicClickListener));*/
     }
 
-    private List<Topic> GenerateTopics() {
+    private void replaceFragment(Fragment fragment) {
+
+        FragmentManager fm = getSupportFragmentManager();
+        FragmentTransaction ft = fm.beginTransaction();
+        ft.replace(R.id.frameLayoutTopics, fragment);
+        ft.commit();
+    }
+
+    /*private List<Topic> GenerateTopics() {
 
         topics = new ArrayList<>();
 
-        /*db = databaseHelper.getReadableDatabase();
+        db = databaseHelper.getReadableDatabase();
         query =  db.rawQuery("select * from "+ DatabaseHelper.TABLE_WORDS, null);
 
         while (query.moveToNext()){
             word_name = query.getString(1);
             topics.add(new Word(word_name, "image1"));
-        }*/
+        }
 
         //topics.add(new Topic("Построение предложений в английском языке I/We/You/They", 1));
         topics.add(new Topic("Построение предложений в английском языке I/We/You/They/1/1/1/1/1", 1));
@@ -66,7 +77,7 @@ public class MainActivity extends AppCompatActivity {
         topics.add(new Topic("1", 5));
 
         return topics;
-    }
+    }*/
 
     public void openDictionary(View view) {
         Intent intent = new Intent(this, DictionaryActivity.class);
@@ -78,4 +89,9 @@ public class MainActivity extends AppCompatActivity {
         startActivity(intent);
     }
 
+    @Override
+    public void onSendData(String topicId) {
+        /*TopicBodyFragment fragment = new TopicBodyFragment(topicId);
+        replaceFragment(fragment);*/
+    }
 }

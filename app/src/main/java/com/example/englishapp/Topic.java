@@ -2,20 +2,26 @@ package com.example.englishapp;
 
 public class Topic {
 
-    private final String name;
-    private final int serialNumber;
+    private final String title;
+    private final String body;
+    private final String serialNumber;
 
-    public Topic(String name, int serialNumber) {
+    public Topic(String title, String body, String serialNumber) {
+        this.title = title;
+        this.body = body;
         this.serialNumber = serialNumber;
-        this.name  = name;
     }
 
-    public String getName(){
-        return name;
+    public String getTitle(){
+        return title;
     }
 
     public String getSerialNumber(){
-        return String.valueOf(serialNumber);
+        return serialNumber;
+    }
+
+    public String getBody(){
+        return body;
     }
 }
 

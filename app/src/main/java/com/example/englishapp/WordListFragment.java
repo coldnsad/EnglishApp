@@ -64,6 +64,8 @@ public class WordListFragment extends Fragment {
         words.add(new Word("4", "image1"));
         words.add(new Word("5", "image1"));*/
 
+        db.close();
+        query.close();
         return words;
     }
 }

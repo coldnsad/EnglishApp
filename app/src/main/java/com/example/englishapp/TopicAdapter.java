@@ -13,8 +13,6 @@ import java.util.Random;
 
 public class TopicAdapter extends RecyclerView.Adapter<TopicAdapter.TopicHolder> {
 
-
-    private Random random;
     private final List<Topic> topics;
     private final OnTopicClickListener onClickListener;
 
@@ -24,25 +22,22 @@ public class TopicAdapter extends RecyclerView.Adapter<TopicAdapter.TopicHolder>
 
     public class TopicHolder extends RecyclerView.ViewHolder {
 
-        private TextView viewName;
+        private TextView viewTitle;
         private TextView viewSerialNumber;
+
         public TopicHolder(@NonNull View itemView) {
             super(itemView);
-            viewName = itemView.findViewById(R.id.topic_name);
+            viewTitle = itemView.findViewById(R.id.topic_name);
             viewSerialNumber = itemView.findViewById(R.id.topic_number);
         }
 
-        public TextView getNameView(){
-            return viewName;
+        public TextView getTitileView(){
+            return viewTitle;
         }
         public TextView getSerialNumberView(){
             return viewSerialNumber;
         }
     }
-
-    /*public WordCategoryAdapter(int seed) {
-        this.random = new Random(seed);
-    }*/
 
     public TopicAdapter(List<Topic> topics, OnTopicClickListener onClickListener) {
         this.topics = topics;
@@ -65,7 +60,7 @@ public class TopicAdapter extends RecyclerView.Adapter<TopicAdapter.TopicHolder>
     @Override
     public void onBindViewHolder(@NonNull TopicHolder holder, int position) {
         Topic topic = topics.get(position);
-        holder.getNameView().setText(topic.getName());
+        holder.getTitileView().setText(topic.getTitle());
         holder.getSerialNumberView().setText(topic.getSerialNumber());
 
         holder.itemView.setOnClickListener(new View.OnClickListener(){

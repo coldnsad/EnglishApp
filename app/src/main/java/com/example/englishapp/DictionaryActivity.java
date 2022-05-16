@@ -21,13 +21,13 @@ public class DictionaryActivity extends AppCompatActivity implements TabLayout.O
         setContentView(R.layout.activity_dictionary);
 
         tabLayout = findViewById(R.id.tabLayout);
-        viewPager2 = findViewById(R.id.viewPager);
+        viewPager2 = findViewById(R.id.viewPagerDictionary);
 
         tabLayout.addTab(tabLayout.newTab().setText("Слова"));
         tabLayout.addTab(tabLayout.newTab().setText("Категории"));
 
         FragmentManager fm = getSupportFragmentManager();
-        VPAdapter adapter = new VPAdapter(fm, getLifecycle());
+        VPAdapterDictionary adapter = new VPAdapterDictionary(fm, getLifecycle());
         viewPager2.setAdapter(adapter);
 
         tabLayout.addOnTabSelectedListener(this);

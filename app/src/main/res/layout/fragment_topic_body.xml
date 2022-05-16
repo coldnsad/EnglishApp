@@ -1,0 +1,29 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+    <TextView
+        android:id="@+id/topicLessonTextView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Lesson 1"
+        android:textSize="30sp"
+        android:textStyle="bold"
+        android:textAlignment="center"
+        android:paddingBottom="20dp">
+    </TextView>
+    <ScrollView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
+        <TextView
+            android:id="@+id/topicBodyTextView"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:text="The — определенный артикль. Обозначает «этот», «эти», то есть указывает на что-то конкретное. Употребляется с любыми существительными: исчисляемыми и неисчисляемыми существительными, единственного и множественного числа."
+            android:textSize="35sp"
+            android:textStyle="italic"
+            android:textAlignment="center">
+        </TextView>
+    </ScrollView>
+
+</LinearLayout>

@@ -58,6 +58,8 @@ public class CategoryListFragment extends Fragment {
             categories.add(new WordCategory(category_name, "image1"));
         }
 
+        db.close();
+        query.close();
         return categories;
     }
 }
