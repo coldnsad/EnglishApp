@@ -19,7 +19,7 @@
                     android:orientation="vertical">
 
                         <TextView
-                            android:id="@+id/topic_number"
+                            android:id="@+id/topicNumber"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:textSize="22sp"
@@ -27,7 +27,7 @@
                             android:text="1">
                         </TextView>
                         <TextView
-                            android:id="@+id/topic_name"
+                            android:id="@+id/topicName"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:textSize="20sp"
@@ -37,7 +37,7 @@
                 </LinearLayout>
 
                 <Button
-                    android:id="@+id/button_topic"
+                    android:id="@+id/buttonTopic"
                     android:layout_width="30dp"
                     android:layout_height="30dp"
                     android:layout_alignParentRight="true"

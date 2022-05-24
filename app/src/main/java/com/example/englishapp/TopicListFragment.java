@@ -102,7 +102,7 @@ public class TopicListFragment extends Fragment {
             fragmentSendDataListener = (OnFragmentSendDataListener) context;
         } catch (ClassCastException e) {
             throw new ClassCastException(context.toString()
-                    + " должен реализовывать интерфейс OnFragmentInteractionListener");
+                    + " должен реализовывать интерфейс OnFragmentSendDataListener");
         }
     }
 }

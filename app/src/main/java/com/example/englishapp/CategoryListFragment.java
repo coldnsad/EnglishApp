@@ -1,5 +1,6 @@
 package com.example.englishapp;
 
+import android.content.Intent;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
@@ -30,6 +31,7 @@ public class CategoryListFragment extends Fragment {
     private SQLiteDatabase db;
     private Cursor query;
     private String category_name;
+    private int category_id;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -41,12 +43,27 @@ public class CategoryListFragment extends Fragment {
         // Creating RecyclerView in this fragment
         recyclerView = view.findViewById(R.id.categoryRecyclerView);
         recyclerView.setLayoutManager(new LinearLayoutManager(getActivity()));
-        recyclerView.setAdapter(new WordCategoryAdapter(GenerateCategories()));
+
+        WordCategoryAdapter.OnWordCategoryClickListener topicClickListener = new WordCategoryAdapter.OnWordCategoryClickListener() {
+            @Override
+            public void onWordCategoryClickListener(WordCategory wordCategory, int position) {
+
+                /*Toast.makeText(view.getContext(), "Был выбран пункт " + wordCategory.getName(),
+                        Toast.LENGTH_SHORT).show();*/
+
+                Intent intent = new Intent(getContext(), WordsDialogActivity.class);
+                intent.putExtra("CATEGORY_ID", wordCategory.getId());
+                intent.putExtra("CATEGORY_NAME", wordCategory.getName());
+                startActivity(intent);
+            }
+        };
+
+        recyclerView.setAdapter(new WordCategoryAdapter(generateCategories(),topicClickListener));
 
         return view;
     }
 
-    private List<WordCategory> GenerateCategories() {
+    private List<WordCategory> generateCategories() {
 
         categories = new ArrayList<>();
 
@@ -54,8 +71,9 @@ public class CategoryListFragment extends Fragment {
         query =  db.rawQuery("select * from "+ DatabaseHelper.TABLE_CATEGORIES, null);
 
         while (query.moveToNext()){
+            category_id = query.getInt(0);
             category_name = query.getString(1);
-            categories.add(new WordCategory(category_name, "image1"));
+            categories.add(new WordCategory(category_name, "image1", category_id));
         }
 
         db.close();

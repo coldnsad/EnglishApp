@@ -29,7 +29,6 @@ public class WordListFragment extends Fragment {
     private DatabaseHelper databaseHelper;
     private SQLiteDatabase db;
     private Cursor query;
-    private String wordName;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -48,14 +47,18 @@ public class WordListFragment extends Fragment {
 
     private List<Word> GenerateWords() {
 
+        String wordName;
+        int wordId;
         words = new ArrayList<>();
 
         db = databaseHelper.getReadableDatabase();
-        query =  db.rawQuery("select * from "+ DatabaseHelper.TABLE_WORDS, null);
+        //query =  db.rawQuery("select * from "+ DatabaseHelper.TABLE_USER_WORDS+" tuw" + "LEFT JOIN " + DatabaseHelper.TABLE_WORDS+ " tw ON tuw.word_id=tw.word_id", null);
+        query =  db.rawQuery("select w.word_id, w.word_name from user_words uw LEFT JOIN words w ON uw.word_id=w.word_id", null);
 
         while (query.moveToNext()){
+            wordId = query.getInt(0);
             wordName = query.getString(1);
-            words.add(new Word(wordName, "image1"));
+            words.add(new Word(wordName, wordId));
         }
 
        /* words.add(new Word("1", "image1"));

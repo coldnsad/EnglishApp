@@ -81,6 +81,7 @@ public class MainActivity extends AppCompatActivity implements TopicListFragment
 
     public void openDictionary(View view) {
         Intent intent = new Intent(this, DictionaryActivity.class);
+        //Intent intent = new Intent(this, WordsDialogActivity.class);
         startActivity(intent);
     }
 

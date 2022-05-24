@@ -3,27 +3,28 @@ package com.example.englishapp;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import java.util.List;
-import java.util.Random;
 
 public class WordCategoryAdapter extends RecyclerView.Adapter<WordCategoryAdapter.WordCategoryHolder> {
 
-
-    private Random random;
     private final List<WordCategory> categories;
+    private final OnWordCategoryClickListener onClickListener;
+
+    interface OnWordCategoryClickListener{
+        void onWordCategoryClickListener(WordCategory state, int position);
+    }
 
     public class WordCategoryHolder extends RecyclerView.ViewHolder {
 
         private TextView view;
         public WordCategoryHolder(@NonNull View itemView) {
             super(itemView);
-            view = itemView.findViewById(R.id.category_name);
+            view = itemView.findViewById(R.id.categoryName);
         }
 
         public TextView getView(){
@@ -31,12 +32,9 @@ public class WordCategoryAdapter extends RecyclerView.Adapter<WordCategoryAdapte
         }
     }
 
-    /*public WordCategoryAdapter(int seed) {
-        this.random = new Random(seed);
-    }*/
-
-    public WordCategoryAdapter(List<WordCategory> categories) {
+    public WordCategoryAdapter(List<WordCategory> categories, OnWordCategoryClickListener onClickListener) {
         this.categories = categories;
+        this.onClickListener = onClickListener;
     }
 
     @Override
@@ -56,6 +54,15 @@ public class WordCategoryAdapter extends RecyclerView.Adapter<WordCategoryAdapte
     public void onBindViewHolder(@NonNull WordCategoryHolder holder, int position) {
         WordCategory wordCategory = categories.get(position);
         holder.getView().setText(wordCategory.getName());
+
+        holder.itemView.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(View v)
+            {
+                // вызываем метод слушателя, передавая ему данные
+                onClickListener.onWordCategoryClickListener(wordCategory, holder.getBindingAdapterPosition());
+            }
+        });
     }
 
     @Override

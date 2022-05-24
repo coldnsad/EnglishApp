@@ -9,7 +9,6 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import java.util.List;
-import java.util.Random;
 
 public class TopicAdapter extends RecyclerView.Adapter<TopicAdapter.TopicHolder> {
 
@@ -27,8 +26,8 @@ public class TopicAdapter extends RecyclerView.Adapter<TopicAdapter.TopicHolder>
 
         public TopicHolder(@NonNull View itemView) {
             super(itemView);
-            viewTitle = itemView.findViewById(R.id.topic_name);
-            viewSerialNumber = itemView.findViewById(R.id.topic_number);
+            viewTitle = itemView.findViewById(R.id.topicName);
+            viewSerialNumber = itemView.findViewById(R.id.topicNumber);
         }
 
         public TextView getTitileView(){

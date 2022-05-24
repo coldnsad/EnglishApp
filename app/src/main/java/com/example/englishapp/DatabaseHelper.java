@@ -9,6 +9,15 @@ public class DatabaseHelper extends SQLiteOpenHelper {
     private static final String DATABASE_NAME = "EnglishApp.db"; // название бд
     private static final int SCHEMA = 1; // версия базы данных
 
+    //Topics
+    static final String TABLE_TOPICS = "topics"; // название таблицы в бд
+
+    public static final String COLUMN_TOPIC_ID = "topic_id";
+    public static final String COLUMN_TOPIC_TITLE = "topic_title";
+    public static final String COLUMN_TOPIC_BODY = "topic_body";
+    public static final String COLUMN_TOPIC_SERIAL_NUMBER = "topic_serial_number";
+    //End Topics
+
     //Categories
     static final String TABLE_CATEGORIES = "categories"; // название таблицы в бд
 
@@ -24,14 +33,15 @@ public class DatabaseHelper extends SQLiteOpenHelper {
     public static final String COLUMN_WORD_CATEGORY_ID = COLUMN_CATEGORY_ID;
     //End Words
 
-    //Topics
-    static final String TABLE_TOPICS = "topics"; // название таблицы в бд
+    //User Words
+    static final String TABLE_USER_WORDS = "user_words"; // название таблицы в бд
 
-    public static final String COLUMN_TOPIC_ID = "topic_id";
-    public static final String COLUMN_TOPIC_TITLE = "topic_title";
-    public static final String COLUMN_TOPIC_BODY = "topic_body";
-    public static final String COLUMN_TOPIC_SERIAL_NUMBER = "topic_serial_number";
-    //End Topics
+    public static final String COLUMN_USER_WORD_ID = "user_word_id";
+    public static final String COLUMN_USER_ID_FOREIGHN = "user_id";
+    public static final String COLUMN_WORD_ID_FOREIGHN = COLUMN_WORD_ID;
+    //End User Words
+
+
 
     public DatabaseHelper(Context context) {
         super(context, DATABASE_NAME, null, SCHEMA);
@@ -39,28 +49,6 @@ public class DatabaseHelper extends SQLiteOpenHelper {
 
     @Override
     public void onCreate(SQLiteDatabase db) {
-
-        //Categories table
-        //Create table
-        db.execSQL("CREATE TABLE "+ TABLE_CATEGORIES +" (" +
-                COLUMN_CATEGORY_ID + " INTEGER PRIMARY KEY AUTOINCREMENT," +
-                COLUMN_CATEGORY_NAME + " TEXT);");
-        // Inserting data to the Categories table
-        db.execSQL("INSERT INTO "+ TABLE_CATEGORIES +" (" +
-                COLUMN_CATEGORY_NAME + ") "
-                + "VALUES ('Города'), ('Животные'), ('Глаголы'), ('Существительные');");
-        //END Categories table
-
-        //Words table
-        //Create table
-        db.execSQL("CREATE TABLE "+ TABLE_WORDS +" (" +
-                COLUMN_WORD_ID + " INTEGER PRIMARY KEY AUTOINCREMENT," +
-                COLUMN_WORD_NAME + " TEXT);");
-        // Inserting data to the Words table
-        db.execSQL("INSERT INTO "+ TABLE_WORDS +" (" +
-                COLUMN_WORD_NAME + ") " +
-                "VALUES ('To run'), ('To eat'), ('Current'), ('Apple');");
-        //END Words table
 
         //Topics table
         //Create table
@@ -83,12 +71,60 @@ public class DatabaseHelper extends SQLiteOpenHelper {
                 "('Title1', 'Body1', '6')," +
                 "('Title1', 'Body1', '7');");
         //END Topics table
+
+        //Categories table
+        //Create table
+        db.execSQL("CREATE TABLE "+ TABLE_CATEGORIES +" (" +
+                COLUMN_CATEGORY_ID + " INTEGER PRIMARY KEY AUTOINCREMENT," +
+                COLUMN_CATEGORY_NAME + " TEXT);");
+        // Inserting data to the Categories table
+        db.execSQL("INSERT INTO "+ TABLE_CATEGORIES +" (" +
+                COLUMN_CATEGORY_NAME + ") "
+                + "VALUES " +
+                "('Города'), " +
+                "('Животные'), " +
+                "('Глаголы'), " +
+                "('Существительные');");
+        //END Categories table
+
+        //Words table
+        //Create table
+        db.execSQL("CREATE TABLE "+ TABLE_WORDS +" (" +
+                COLUMN_WORD_ID + " INTEGER PRIMARY KEY AUTOINCREMENT," +
+                COLUMN_WORD_NAME + " TEXT," +
+                COLUMN_WORD_CATEGORY_ID + " INTEGER);");
+        // Inserting data to the Words table
+        db.execSQL("INSERT INTO "+ TABLE_WORDS +" (" +
+                COLUMN_WORD_NAME + "," +
+                COLUMN_WORD_CATEGORY_ID + ") " +
+                "VALUES " +
+                "('Elephant', '2'), " +
+                "('Tiger', '2'), " +
+                "('Current', '1'), " +
+                "('Apple', '1');");
+        //END Words table
+
+        //User words table
+        //Create table
+        db.execSQL("CREATE TABLE "+ TABLE_USER_WORDS +" (" +
+                COLUMN_USER_WORD_ID + " INTEGER PRIMARY KEY AUTOINCREMENT," +
+                COLUMN_USER_ID_FOREIGHN + " INTEGER," +
+                COLUMN_WORD_ID_FOREIGHN + " INTEGER);");
+        // Inserting data to the Words table
+        db.execSQL("INSERT INTO "+ TABLE_USER_WORDS +" (" +
+                COLUMN_USER_ID_FOREIGHN + "," +
+                COLUMN_WORD_ID_FOREIGHN + ") " +
+                "VALUES " +
+                "('1', '2');");
+        //END User words table
+
+
     }
     @Override
     public void onUpgrade(SQLiteDatabase db, int oldVersion,  int newVersion) {
-        db.execSQL("DROP TABLE IF EXISTS "+TABLE_CATEGORIES);
+        /*db.execSQL("DROP TABLE IF EXISTS "+TABLE_CATEGORIES);
         db.execSQL("DROP TABLE IF EXISTS "+TABLE_WORDS);
-        db.execSQL("DROP TABLE IF EXISTS "+TABLE_TOPICS);
+        db.execSQL("DROP TABLE IF EXISTS "+TABLE_TOPICS);*/
         onCreate(db);
     }
 
