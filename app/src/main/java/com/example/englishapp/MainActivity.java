@@ -33,20 +33,6 @@ public class MainActivity extends AppCompatActivity implements TopicListFragment
         setContentView(R.layout.activity_main);
 
         replaceFragment(new TopicListFragment());
-        // Creating RecyclerView
-       /* recyclerView = findViewById(R.id.topicRecyclerView);
-
-        TopicAdapter.OnTopicClickListener topicClickListener = new TopicAdapter.OnTopicClickListener() {
-            @Override
-            public void onTopicClick(Topic topic, int position) {
-
-                Toast.makeText(getApplicationContext(), "Был выбран пункт " + topic.getSerialNumber(),
-                        Toast.LENGTH_SHORT).show();
-            }
-        };
-
-        recyclerView.setLayoutManager(new LinearLayoutManager(this));
-        recyclerView.setAdapter(new TopicAdapter(GenerateTopics(), topicClickListener));*/
     }
 
     private void replaceFragment(Fragment fragment) {
@@ -57,28 +43,6 @@ public class MainActivity extends AppCompatActivity implements TopicListFragment
         ft.commit();
     }
 
-    /*private List<Topic> GenerateTopics() {
-
-        topics = new ArrayList<>();
-
-        db = databaseHelper.getReadableDatabase();
-        query =  db.rawQuery("select * from "+ DatabaseHelper.TABLE_WORDS, null);
-
-        while (query.moveToNext()){
-            word_name = query.getString(1);
-            topics.add(new Word(word_name, "image1"));
-        }
-
-        //topics.add(new Topic("Построение предложений в английском языке I/We/You/They", 1));
-        topics.add(new Topic("Построение предложений в английском языке I/We/You/They/1/1/1/1/1", 1));
-        topics.add(new Topic("1", 2));
-        topics.add(new Topic("1", 3));
-        topics.add(new Topic("1", 4));
-        topics.add(new Topic("1", 5));
-
-        return topics;
-    }*/
-
     public void openDictionary(View view) {
         Intent intent = new Intent(this, DictionaryActivity.class);
         //Intent intent = new Intent(this, WordsDialogActivity.class);
@@ -86,7 +50,8 @@ public class MainActivity extends AppCompatActivity implements TopicListFragment
     }
 
     public void openSettings(View view) {
-        Intent intent = new Intent(this, SettingsActivity.class);
+        //Intent intent = new Intent(this, SettingsActivity.class);
+        Intent intent = new Intent(this, AuthActivity.class);
         startActivity(intent);
     }
 
