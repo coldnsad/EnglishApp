@@ -20,14 +20,6 @@ public class VPAdapterDictionary extends FragmentStateAdapter {
             return new WordListFragment();
         }
         return new CategoryListFragment();
-        /*switch (position){
-            case 0:
-                return new WordListFragment();
-            case 1:
-                return new CategoryListFragment();
-            default:
-                return new WordListFragment();
-        }*/
     }
 
     @Override

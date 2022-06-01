@@ -36,13 +36,12 @@
 
                 </LinearLayout>
 
-                <Button
-                    android:id="@+id/buttonTopic"
+                <ImageView
                     android:layout_width="30dp"
                     android:layout_height="30dp"
                     android:layout_alignParentRight="true"
                     android:background="@drawable/ic_action_name">
-                </Button>
+                </ImageView>
 
         </RelativeLayout>
 

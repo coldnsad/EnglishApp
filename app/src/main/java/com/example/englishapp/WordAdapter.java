@@ -8,6 +8,7 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
 
@@ -15,7 +16,7 @@ public class WordAdapter extends RecyclerView.Adapter<WordAdapter.WordHolder> {
 
 
     private Random random;
-    private final List<Word> words;
+    private List<Word> words;
 
     public class WordHolder extends RecyclerView.ViewHolder {
 
@@ -23,6 +24,7 @@ public class WordAdapter extends RecyclerView.Adapter<WordAdapter.WordHolder> {
         public WordHolder(@NonNull View itemView) {
             super(itemView);
             view = itemView.findViewById(R.id.word_name);
+
         }
 
         public TextView getView(){
@@ -60,5 +62,10 @@ public class WordAdapter extends RecyclerView.Adapter<WordAdapter.WordHolder> {
     @Override
     public int getItemCount() {
         return words.size();
+    }
+
+    public void setWordsList(ArrayList<Word> words) {
+        this.words = words;
+        notifyDataSetChanged();
     }
 }

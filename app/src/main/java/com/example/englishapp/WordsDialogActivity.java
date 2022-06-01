@@ -5,38 +5,47 @@ import android.content.Intent;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
-import android.provider.ContactsContract;
 import android.view.View;
-import android.widget.SimpleCursorAdapter;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
-import androidx.recyclerview.widget.RecyclerView;
 
-import org.w3c.dom.Text;
+import com.google.android.gms.tasks.OnFailureListener;
+import com.google.android.gms.tasks.OnSuccessListener;
+import com.google.android.material.snackbar.Snackbar;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
 
 import java.util.ArrayList;
 import java.util.List;
 
 public class WordsDialogActivity extends AppCompatActivity {
 
-    List<Word> words;
-    int counter;
+    private List<Word> words;
+    private int counter;
 
-    DatabaseHelper databaseHelper;
-    SQLiteDatabase db;
-    Cursor query;
-    ContentValues contentValues;
+    private DatabaseHelper databaseHelper;
+    private SQLiteDatabase sqLiteDB;
+    private Cursor query;
+    private ContentValues contentValues;
+
+    private FirebaseDatabase firebaseDB;
+    private String dbLink = "https://englishapp-df661-default-rtdb.asia-southeast1.firebasedatabase.app";
+    private DatabaseReference userWords;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_words_dialog);
         databaseHelper = new DatabaseHelper(this);
+        firebaseDB = FirebaseDatabase.getInstance(dbLink);
+        userWords = firebaseDB.getReference("User_words");
 
         Bundle arguments = getIntent().getExtras();
         counter = 0;
@@ -88,7 +97,7 @@ public class WordsDialogActivity extends AppCompatActivity {
     }
 
     private void negativeAnswered(){
-        addWord(words.get(counter-1).getId());
+        addWord(words.get(counter-1));
         if(counter + 1 <= words.size()){
             Fragment fragment = FragmentWordDialog.newInstance(words.get(counter).getName(), String.valueOf(counter));
             counter++;
@@ -113,8 +122,8 @@ public class WordsDialogActivity extends AppCompatActivity {
         int wordId;
         words = new ArrayList<>();
 
-        db = databaseHelper.getReadableDatabase();
-        query =  db.rawQuery("SELECT * FROM "+ DatabaseHelper.TABLE_WORDS + " WHERE category_id=" + categoryId, null);
+        sqLiteDB = databaseHelper.getReadableDatabase();
+        query =  sqLiteDB.rawQuery("SELECT * FROM "+ DatabaseHelper.TABLE_WORDS + " WHERE category_id=" + categoryId, null);
 
         while (query.moveToNext()){
             wordId = query.getInt(0);
@@ -122,20 +131,36 @@ public class WordsDialogActivity extends AppCompatActivity {
             words.add(new Word(wordName, wordId));
         }
 
-        db.close();
+        sqLiteDB.close();
         query.close();
 
         if(words.size() > 0) return true;
         return false;
     }
 
-    private long addWord(int wordId) {
+    private void addWord(Word word) {
 
-        db = databaseHelper.getWritableDatabase();
+        userWords.child(FirebaseAuth.getInstance().getCurrentUser().getUid())
+                .push()
+                .setValue(word)
+                .addOnSuccessListener(new OnSuccessListener<Void>() {
+                    @Override
+                    public void onSuccess(Void unused) {
+                        Snackbar.make(findViewById(R.id.rootDialogActivity), "Done", Snackbar.LENGTH_SHORT)
+                                .show();
+                    }
+                }).addOnFailureListener(new OnFailureListener() {
+            @Override
+            public void onFailure(@NonNull Exception e) {
+                Snackbar.make(findViewById(R.id.rootDialogActivity), "Fail: " + e.getMessage(), Snackbar.LENGTH_SHORT)
+                        .show();
+            }
+        });
+       /* sqLiteDB = databaseHelper.getWritableDatabase();
         contentValues = new ContentValues();
         contentValues.put(DatabaseHelper.COLUMN_USER_ID_FOREIGHN, 1);
         contentValues.put(DatabaseHelper.COLUMN_WORD_ID_FOREIGHN, wordId);
 
-       return db.insert(DatabaseHelper.TABLE_USER_WORDS, null, contentValues);
+       return sqLiteDB.insert(DatabaseHelper.TABLE_USER_WORDS, null, contentValues);*/
     }
 }

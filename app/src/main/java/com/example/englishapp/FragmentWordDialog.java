@@ -11,11 +11,6 @@ import android.widget.TextView;
 
 import org.w3c.dom.Text;
 
-/**
- * A simple {@link Fragment} subclass.
- * Use the {@link FragmentWordDialog#newInstance} factory method to
- * create an instance of this fragment.
- */
 public class FragmentWordDialog extends Fragment {
 
     // TODO: Rename parameter arguments, choose names that match
@@ -31,15 +26,6 @@ public class FragmentWordDialog extends Fragment {
     public FragmentWordDialog() {
         // Required empty public constructor
     }
-
-    /**
-     * Use this factory method to create a new instance of
-     * this fragment using the provided parameters.
-     *
-     * @param param1 Parameter 1.
-     * @param param2 Parameter 2.
-     * @return A new instance of fragment fragment_word_dialog.
-     */
     // TODO: Rename and change types and number of parameters
     public static FragmentWordDialog newInstance(String param1, String param2) {
         FragmentWordDialog fragment = new FragmentWordDialog();

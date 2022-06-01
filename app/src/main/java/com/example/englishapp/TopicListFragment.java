@@ -79,13 +79,6 @@ public class TopicListFragment extends Fragment {
                     query.getString(3)));
 
         }
-
-        //topics.add(new Topic("Построение предложений в английском языке I/We/You/They", 1));
-        /*topics.add(new Topic("Построение предложений в английском языке I/We/You/They/1/1/1/1/1", "1", "1"));
-        topics.add(new Topic("Построение предложений в английском языке I/We/You/They/1/1/1/1/1", "1", "1"));
-        topics.add(new Topic("Построение предложений в английском языке I/We/You/They/1/1/1/1/1", "1", "1"));
-        topics.add(new Topic("Построение предложений в английском языке I/We/You/They/1/1/1/1/1", "1", "1"));*/
-
         db.close();
         query.close();
         return topics;

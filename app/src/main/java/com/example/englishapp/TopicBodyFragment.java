@@ -9,17 +9,7 @@ import android.view.ViewGroup;
 import android.widget.TextView;
 
 import androidx.fragment.app.Fragment;
-import androidx.recyclerview.widget.LinearLayoutManager;
-import androidx.recyclerview.widget.RecyclerView;
 
-import java.util.ArrayList;
-import java.util.List;
-
-/**
- * A simple {@link Fragment} subclass.
- * Use the  factory method to
- * create an instance of this fragment.
- */
 public class TopicBodyFragment extends Fragment {
 
     //Fields for work with database
@@ -36,7 +26,7 @@ public class TopicBodyFragment extends Fragment {
         databaseHelper = new DatabaseHelper(view.getContext());
 
         TextView viewBody = view.findViewById(R.id.topicBodyTextView);
-        TextView viewLesson = view.findViewById(R.id.topicLessonTextView);
+        TextView viewLesson = view.findViewById(R.id.topicTitleBodyTextView);
         viewBody.setText(getArguments().getString("TOPIC_BODY"));
         viewLesson.setText("Lesson " + getArguments().getString("TOPIC_SERIAL_NUMBER"));
 
@@ -54,26 +44,4 @@ public class TopicBodyFragment extends Fragment {
         fragment.setArguments(args);
         return fragment;
     }
-
-    /*private List<Topic> GenerateTopics() {
-
-        topics = new ArrayList<>();
-
-        db = databaseHelper.getReadableDatabase();
-        query =  db.rawQuery("select * from "+ DatabaseHelper.TABLE_WORDS, null);
-
-        while (query.moveToNext()){
-            word_name = query.getString(1);
-            topics.add(new Word(word_name, "image1"));
-        }
-
-        //topics.add(new Topic("Построение предложений в английском языке I/We/You/They", 1));
-        topics.add(new Topic("Построение предложений в английском языке I/We/You/They/1/1/1/1/1", 1));
-        topics.add(new Topic("1", 2));
-        topics.add(new Topic("1", 3));
-        topics.add(new Topic("1", 4));
-        topics.add(new Topic("1", 5));
-
-        return topics;
-    }*/
 }

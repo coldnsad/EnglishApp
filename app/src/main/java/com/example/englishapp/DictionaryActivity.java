@@ -60,7 +60,7 @@ public class DictionaryActivity extends AppCompatActivity implements TabLayout.O
     }
 
     public void openSettings(View view) {
-        Intent intent = new Intent(this, SettingsActivity.class);
+        Intent intent = new Intent(this, ProfileActivity.class);
         startActivity(intent);
     }
 }
