@@ -1,13 +1,14 @@
 package com.example.englishapp;
 
 public class User {
-    private String email, nickName;
+    private String email, name, secondName;
 
     User(){}
 
-    User(String email, String password, String nickName){
+    User(String email, String name, String secondName){
         this.email = email;
-        this.nickName = nickName;
+        this.name = name;
+        this.secondName = secondName;
     }
 
     public String getEmail() {
@@ -18,11 +19,19 @@ public class User {
         this.email = email;
     }
 
-    public String getNickName() {
-        return nickName;
+    public String getName() {
+        return name;
     }
 
-    public void setNickName(String nickName) {
-        this.nickName = nickName;
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public String getSecondName() {
+        return secondName;
+    }
+
+    public void setSecondName(String secondName) {
+        this.secondName = secondName;
     }
 }

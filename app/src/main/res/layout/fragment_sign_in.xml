@@ -25,7 +25,7 @@
         android:id="@+id/passwordEdit"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="Password"
+        android:hint="Пароль"
         android:textSize="30sp"
         android:textColor="@color/white"
         android:textColorHint="#80FFFFFF"

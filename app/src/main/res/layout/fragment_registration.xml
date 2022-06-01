@@ -10,6 +10,26 @@
     tools:context=".FragmentRegistration">
 
     <EditText
+        android:id="@+id/nameEdit"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Имя"
+        android:textSize="20sp"
+        android:textColor="@color/white"
+        android:textColorHint="#80FFFFFF">
+    </EditText>
+
+    <EditText
+        android:id="@+id/secondNameEdit"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Фамилия"
+        android:textSize="20sp"
+        android:textColor="@color/white"
+        android:textColorHint="#80FFFFFF">
+    </EditText>
+
+    <EditText
         android:id="@+id/emailEdit"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -17,7 +37,7 @@
         android:inputType="textEmailAddress"
         android:textColor="@color/white"
         android:textColorHint="#80FFFFFF"
-        android:textSize="30sp">
+        android:textSize="20sp">
 
     </EditText>
 
@@ -25,21 +45,11 @@
         android:id="@+id/passwordEdit"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="Password"
-        android:textSize="30sp"
+        android:hint="Пароль"
+        android:textSize="20sp"
         android:textColor="@color/white"
         android:textColorHint="#80FFFFFF"
         android:inputType="textPassword">
-    </EditText>
-
-    <EditText
-        android:id="@+id/nickNameEdit"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:hint="Name"
-        android:textSize="30sp"
-        android:textColor="@color/white"
-        android:textColorHint="#80FFFFFF">
     </EditText>
 
     <LinearLayout

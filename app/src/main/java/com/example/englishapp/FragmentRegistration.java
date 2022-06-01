@@ -1,6 +1,5 @@
 package com.example.englishapp;
 
-import android.content.Intent;
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
@@ -38,6 +37,7 @@ public class FragmentRegistration extends Fragment {
     private EditText emailEdit;
     private EditText passEdit;
     private EditText nameEdit;
+    private EditText secondNameEdit;
 
     public FragmentRegistration() {
 
@@ -70,12 +70,12 @@ public class FragmentRegistration extends Fragment {
 
         emailEdit = v.findViewById(R.id.emailEdit);
         passEdit = v.findViewById(R.id.passwordEdit);
-        nameEdit = v.findViewById(R.id.nickNameEdit);
+        nameEdit = v.findViewById(R.id.nameEdit);
+        secondNameEdit = v.findViewById(R.id.secondNameEdit);
 
         auth = FirebaseAuth.getInstance();
         db = FirebaseDatabase.getInstance(dbLink);
         users = db.getReference("User_data");
-
 
         btnRegistrate = v.findViewById(R.id.buttonRegistration);
         btnRegistrate.setOnClickListener(new View.OnClickListener() {
@@ -92,7 +92,12 @@ public class FragmentRegistration extends Fragment {
                     return;
                 }
                 if(TextUtils.isEmpty(nameEdit.getText().toString())){
-                    Snackbar.make(getActivity().findViewById(R.id.root), "Введние ваше имя(никнейм)", Snackbar.LENGTH_LONG)
+                    Snackbar.make(getActivity().findViewById(R.id.root), "Введние ваше имя", Snackbar.LENGTH_LONG)
+                            .show();
+                    return;
+                }
+                if(TextUtils.isEmpty(secondNameEdit.getText().toString())){
+                    Snackbar.make(getActivity().findViewById(R.id.root), "Введние вашу фамилию", Snackbar.LENGTH_LONG)
                             .show();
                     return;
                 }
@@ -102,8 +107,10 @@ public class FragmentRegistration extends Fragment {
                             public void onSuccess(AuthResult authResult) {
                                 User user = new User();
                                 user.setEmail(emailEdit.getText().toString());
-                                user.setNickName(nameEdit.getText().toString());
+                                user.setName(nameEdit.getText().toString());
+                                user.setSecondName(secondNameEdit.getText().toString());
                                 users.child(FirebaseAuth.getInstance().getCurrentUser().getUid())
+                                        .push()
                                         .setValue(user)
                                         .addOnSuccessListener(new OnSuccessListener<Void>() {
                                             @Override

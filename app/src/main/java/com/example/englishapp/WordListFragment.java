@@ -51,12 +51,12 @@ public class WordListFragment extends Fragment {
         // Creating RecyclerView in this fragment
         recyclerView = view.findViewById(R.id.wordRecyclerView);
         recyclerView.setLayoutManager(new LinearLayoutManager(getActivity()));
-        GenerateWords();
+        generateWords();
         recyclerView.setAdapter(wordAdapter);
         return view;
     }
 
-    private void GenerateWords() {
+    private void generateWords() {
 
         ValueEventListener valueEventListener = new ValueEventListener() {
             @Override

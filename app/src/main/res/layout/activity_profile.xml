@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
     android:gravity="center_horizontal"
     android:background="@drawable/main_bg"
+    android:id="@+id/root"
     tools:context=".ProfileActivity">
 
     <LinearLayout
@@ -20,12 +20,12 @@
 
         <TextView
             android:id="@+id/textHeaderSearch"
-            android:layout_width="163dp"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Search"
+            android:text="Редактирование профиля"
             android:textAlignment="center"
             android:textColor="@color/white"
-            android:textSize="50sp" />
+            android:textSize="30sp" />
 
     </LinearLayout>
 
@@ -33,19 +33,89 @@
         android:layout_width="match_parent"
         android:layout_height="424dp"
         android:layout_marginTop="40dp"
-        android:alpha="0.7"
+        android:alpha="0.9"
         android:background="@drawable/rounded"
-        android:gravity="center_horizontal"
         android:orientation="vertical">
 
-        <TextView
-            android:id="@+id/textMainSearch"
-            android:layout_width="163dp"
+        <ImageView
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Settings"
-            android:textAlignment="center"
+            android:layout_marginTop="10dp"
+            android:layout_gravity="center"
+            android:src="@drawable/ic_baseline_person_pin_24">
+
+        </ImageView>
+
+        <EditText
+            android:id="@+id/profileNameEdit"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Имя"
             android:textColor="@color/white"
-            android:textSize="100px" />
+            android:textColorHint="#80FFFFFF"
+            android:textSize="30sp">
+
+        </EditText>
+
+        <EditText
+            android:id="@+id/profileSecondNameEdit"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Фамилия"
+            android:textSize="30sp"
+            android:textColor="@color/white"
+            android:textColorHint="#80FFFFFF"
+            android:inputType="text">
+        </EditText>
+
+       <!-- <EditText
+            android:id="@+id/profileEmailEdit"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Email"
+            android:textSize="30sp"
+            android:textColor="@color/white"
+            android:textColorHint="#80FFFFFF"
+            android:inputType="textEmailAddress">
+        </EditText>-->
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="horizontal"
+            android:weightSum="3"
+            android:gravity="bottom"
+            android:layout_marginBottom="5dp">
+
+            <Button
+                android:id="@+id/profileButtonUpdate"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="#FFFFFF"
+                android:background="@drawable/rounded_auth"
+                android:layout_weight="1"
+                android:layout_marginEnd="5dp"
+                android:text="Обновить"/>
+
+            <Button
+                android:id="@+id/profileButtonChangePass"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="#FFFFFF"
+                android:background="@drawable/rounded_auth"
+                android:layout_weight="1"
+                android:layout_marginEnd="5dp"
+                android:text="Изменить пароль"/>
+
+            <Button
+                android:id="@+id/profileButtonSgnOut"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="@drawable/button_text_color"
+                android:background="@drawable/rounded_auth"
+                android:layout_weight="1"
+                android:text="Выйти"/>
+        </LinearLayout>
 
     </LinearLayout>
 

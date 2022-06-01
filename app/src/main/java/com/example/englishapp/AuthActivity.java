@@ -26,7 +26,7 @@ public class AuthActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         auth = FirebaseAuth.getInstance();
-        auth.signOut();
+        //auth.signOut();
         if(auth.getCurrentUser() != null){
             Intent in = new Intent(this, MainActivity.class);
             startActivity(in);
