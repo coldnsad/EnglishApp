@@ -29,6 +29,7 @@ public class WordsDialogActivity extends AppCompatActivity {
 
     private List<Word> words;
     private int counter;
+    private Word currentWord;
 
     private DatabaseHelper databaseHelper;
     private SQLiteDatabase sqLiteDB;
@@ -53,11 +54,14 @@ public class WordsDialogActivity extends AppCompatActivity {
         if(arguments != null) {
 
             if(getWordsByCategory(arguments.getInt("CATEGORY_ID"))) {
-
+                currentWord = words.get(counter);
                 TextView categoryName = findViewById(R.id.dialogCategoryName);
                 categoryName.setText("Категория: " + arguments.getString("CATEGORY_NAME"));
 
-                Fragment fragment = FragmentWordDialog.newInstance(words.get(counter).getName(), String.valueOf(counter));
+                Fragment fragment = FragmentWordDialog.newInstance(
+                        currentWord.getName(),
+                        currentWord.getTranslation(),
+                        currentWord.getTranscription());
                 counter++;
 
                 replaceFragment(fragment);
@@ -87,7 +91,11 @@ public class WordsDialogActivity extends AppCompatActivity {
 
     private void positiveAnswered(){
         if(counter + 1 <= words.size()){
-            Fragment fragment = FragmentWordDialog.newInstance(words.get(counter).getName(), String.valueOf(counter));
+            currentWord = words.get(counter);
+            Fragment fragment = FragmentWordDialog.newInstance(
+                    currentWord.getName(),
+                    currentWord.getTranslation(),
+                    currentWord.getTranscription());
             counter++;
             replaceFragment(fragment);
         }else{
@@ -99,7 +107,11 @@ public class WordsDialogActivity extends AppCompatActivity {
     private void negativeAnswered(){
         addWord(words.get(counter-1));
         if(counter + 1 <= words.size()){
-            Fragment fragment = FragmentWordDialog.newInstance(words.get(counter).getName(), String.valueOf(counter));
+            currentWord = words.get(counter);
+            Fragment fragment = FragmentWordDialog.newInstance(
+                    currentWord.getName(),
+                    currentWord.getTranslation(),
+                    currentWord.getTranscription());
             counter++;
             replaceFragment(fragment);
         }else{
@@ -119,6 +131,8 @@ public class WordsDialogActivity extends AppCompatActivity {
     private Boolean getWordsByCategory(int categoryId) {
 
         String wordName;
+        String translation;
+        String transcription;
         int wordId;
         words = new ArrayList<>();
 
@@ -128,7 +142,10 @@ public class WordsDialogActivity extends AppCompatActivity {
         while (query.moveToNext()){
             wordId = query.getInt(0);
             wordName = query.getString(1);
-            words.add(new Word(wordName, wordId));
+            translation = query.getString(2);
+            transcription = query.getString(3);
+
+            words.add(new Word(wordName, translation, transcription, wordId));
         }
 
         sqLiteDB.close();

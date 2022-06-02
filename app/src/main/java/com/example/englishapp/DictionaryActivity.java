@@ -10,7 +10,7 @@ import android.view.View;
 
 import com.google.android.material.tabs.TabLayout;
 
-public class DictionaryActivity extends AppCompatActivity implements TabLayout.OnTabSelectedListener {
+public class DictionaryActivity extends AppCompatActivity implements TabLayout.OnTabSelectedListener, WordListFragment.OnFragmentSendDataListener {
 
     private TabLayout tabLayout;
     private ViewPager2 viewPager2;
@@ -59,8 +59,13 @@ public class DictionaryActivity extends AppCompatActivity implements TabLayout.O
         startActivity(intent);
     }
 
-    public void openSettings(View view) {
+    public void openProfile(View view) {
         Intent intent = new Intent(this, ProfileActivity.class);
         startActivity(intent);
+    }
+
+    public void onSendData(String wordId) {
+        /*TopicBodyFragment fragment = new TopicBodyFragment(topicId);
+        replaceFragment(fragment);*/
     }
 }

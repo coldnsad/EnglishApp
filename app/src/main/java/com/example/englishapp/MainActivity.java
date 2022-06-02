@@ -6,8 +6,14 @@ import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
 
 import android.content.Intent;
+import android.media.MediaPlayer;
+import android.net.Uri;
 import android.os.Bundle;
 import android.view.View;
+
+import com.google.android.material.snackbar.Snackbar;
+
+import java.net.URI;
 
 public class MainActivity extends AppCompatActivity implements TopicListFragment.OnFragmentSendDataListener {
 
@@ -33,9 +39,8 @@ public class MainActivity extends AppCompatActivity implements TopicListFragment
         startActivity(intent);
     }
 
-    public void openSettings(View view) {
+    public void openProfile(View view) {
         Intent intent = new Intent(this, ProfileActivity.class);
-        //Intent intent = new Intent(this, AuthActivity.class);
         startActivity(intent);
     }
 

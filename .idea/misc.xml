@@ -11,6 +11,7 @@
         <entry key="..\:/Users/vladi/AndroidStudioProjects/EnglishApp/app/src/main/res/drawable/button_back_opacity.xml" value="0.1935" />
         <entry key="..\:/Users/vladi/AndroidStudioProjects/EnglishApp/app/src/main/res/drawable/button_text_color.xml" value="0.1855" />
         <entry key="..\:/Users/vladi/AndroidStudioProjects/EnglishApp/app/src/main/res/drawable/edit_text_drawable.xml" value="0.1495" />
+        <entry key="..\:/Users/vladi/AndroidStudioProjects/EnglishApp/app/src/main/res/drawable/ic_baseline_headset_24.xml" value="0.264" />
         <entry key="..\:/Users/vladi/AndroidStudioProjects/EnglishApp/app/src/main/res/drawable/ic_baseline_home_24.xml" value="0.109" />
         <entry key="..\:/Users/vladi/AndroidStudioProjects/EnglishApp/app/src/main/res/drawable/ic_baseline_menu_book_24.xml" value="0.1935" />
         <entry key="..\:/Users/vladi/AndroidStudioProjects/EnglishApp/app/src/main/res/drawable/ic_baseline_menu_book_active_24.xml" value="0.1525" />
@@ -39,7 +40,8 @@
         <entry key="..\:/Users/vladi/AndroidStudioProjects/EnglishApp/app/src/main/res/layout/fragment_word_list.xml" value="0.22847222222222222" />
         <entry key="..\:/Users/vladi/AndroidStudioProjects/EnglishApp/app/src/main/res/layout/item_category.xml" value="0.19305555555555556" />
         <entry key="..\:/Users/vladi/AndroidStudioProjects/EnglishApp/app/src/main/res/layout/item_topic.xml" value="0.19305555555555556" />
-        <entry key="..\:/Users/vladi/AndroidStudioProjects/EnglishApp/app/src/main/res/layout/item_word.xml" value="0.266015625" />
+        <entry key="..\:/Users/vladi/AndroidStudioProjects/EnglishApp/app/src/main/res/layout/item_word.xml" value="0.22569444444444445" />
+        <entry key="..\:/Users/vladi/AndroidStudioProjects/EnglishApp/app/src/main/res/layout/item_word_copy.xml" value="0.266015625" />
         <entry key="..\:/Users/vladi/AndroidStudioProjects/EnglishApp/app/src/main/res/layout/register_window.xml" value="0.266015625" />
         <entry key="..\:/Users/vladi/AndroidStudioProjects/EnglishApp/app/src/main/res/mipmap-anydpi-v26/ic_launcher.xml" value="0.1" />
         <entry key="..\:/Users/vladi/AndroidStudioProjects/EnglishApp/app/src/main/res/mipmap-anydpi-v26/ic_launcher_round.xml" value="0.1" />

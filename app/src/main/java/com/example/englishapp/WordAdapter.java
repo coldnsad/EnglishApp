@@ -14,30 +14,40 @@ import java.util.Random;
 
 public class WordAdapter extends RecyclerView.Adapter<WordAdapter.WordHolder> {
 
-
-    private Random random;
     private List<Word> words;
+    private final WordAdapter.OnWordClickListener onClickListener;
 
+    interface OnWordClickListener{
+        void onWordClick(Word state, int position);
+    }
     public class WordHolder extends RecyclerView.ViewHolder {
 
-        private TextView view;
+        private TextView viewWordName;
+        private TextView viewWordTranslation;
+        private TextView viewWordTranscription;
         public WordHolder(@NonNull View itemView) {
             super(itemView);
-            view = itemView.findViewById(R.id.word_name);
-
+            viewWordName = itemView.findViewById(R.id.word_name);
+            viewWordTranslation = itemView.findViewById(R.id.word_translation);
+            viewWordTranscription = itemView.findViewById(R.id.word_transcription);
         }
 
-        public TextView getView(){
-            return view;
+        public TextView getViewWordName(){
+            return viewWordName;
+        }
+
+        public TextView getViewWordTranslation() {
+            return viewWordTranslation;
+        }
+
+        public TextView getViewWordTranscription() {
+            return viewWordTranscription;
         }
     }
 
-    /*public WordCategoryAdapter(int seed) {
-        this.random = new Random(seed);
-    }*/
-
-    public WordAdapter(List<Word> words) {
+    public WordAdapter(List<Word> words, WordAdapter.OnWordClickListener onClickListener) {
         this.words = words;
+        this.onClickListener = onClickListener;
     }
 
     @Override
@@ -56,7 +66,18 @@ public class WordAdapter extends RecyclerView.Adapter<WordAdapter.WordHolder> {
     @Override
     public void onBindViewHolder(@NonNull WordHolder holder, int position) {
         Word word = words.get(position);
-        holder.getView().setText(word.getName());
+        holder.getViewWordName().setText(word.getName());
+        holder.getViewWordTranslation().setText(word.getTranslation());
+        holder.getViewWordTranscription().setText(word.getTranscription());
+
+        holder.itemView.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(View v)
+            {
+                // вызываем метод слушателя, передавая ему данные
+                onClickListener.onWordClick(word, holder.getBindingAdapterPosition());
+            }
+        });
     }
 
     @Override

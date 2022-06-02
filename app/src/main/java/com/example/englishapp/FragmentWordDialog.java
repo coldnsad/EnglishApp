@@ -1,5 +1,7 @@
 package com.example.englishapp;
 
+import android.media.MediaPlayer;
+import android.net.Uri;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
@@ -13,25 +15,29 @@ import org.w3c.dom.Text;
 
 public class FragmentWordDialog extends Fragment {
 
-    // TODO: Rename parameter arguments, choose names that match
-    // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
-    private static final String ARG_PARAM1 = "WORD";
-    private static final String ARG_PARAM2 = "TRANSCRIPTION";
-    private static final String ARG_PARAM3 = "CATEGORY_NAME";
+    private static final String ARG_PARAM1 = "WORD_NAME";
+    private static final String ARG_PARAM2 = "WORD_TRANSLATION";
+    private static final String ARG_PARAM3 = "WORD_TRANSCRIPTION";
 
-    // TODO: Rename and change types of parameters
-    private String mParam1;
-    private String mParam2;
+    private String wordName;
+    private String wordTranslation;
+    private String wordTranscription;
+
+    private TextView viewWord;
+    private TextView viewTranscription;
+    private TextView viewTranslation;
+    private String wordSoundRes = "https://www.english-easy.info/talker/words/";
 
     public FragmentWordDialog() {
         // Required empty public constructor
     }
     // TODO: Rename and change types and number of parameters
-    public static FragmentWordDialog newInstance(String param1, String param2) {
+    public static FragmentWordDialog newInstance(String wordName, String wordTranslation, String wordTranscription) {
         FragmentWordDialog fragment = new FragmentWordDialog();
         Bundle args = new Bundle();
-        args.putString(ARG_PARAM1, param1);
-        args.putString(ARG_PARAM2, param2);
+        args.putString(ARG_PARAM1, wordName);
+        args.putString(ARG_PARAM2, wordTranslation);
+        args.putString(ARG_PARAM3, wordTranscription);
         fragment.setArguments(args);
         return fragment;
     }
@@ -40,9 +46,9 @@ public class FragmentWordDialog extends Fragment {
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         if (getArguments() != null) {
-            mParam1 = getArguments().getString(ARG_PARAM1);
-            mParam2 = getArguments().getString(ARG_PARAM2);
-            mParam2 = getArguments().getString(ARG_PARAM3);
+            wordName = getArguments().getString(ARG_PARAM1);
+            wordTranslation = getArguments().getString(ARG_PARAM2);
+            wordTranscription = getArguments().getString(ARG_PARAM3);
         }
     }
 
@@ -52,12 +58,21 @@ public class FragmentWordDialog extends Fragment {
         // Inflate the layout for this fragment
         View view = inflater.inflate(R.layout.fragment_word_dialog, container, false);
 
-        TextView viewWord = view.findViewById(R.id.textWordDialog);
-        TextView viewTranscription = view.findViewById(R.id.textTranscriptionDialog);
+        viewWord = view.findViewById(R.id.textWordDialog);
+        viewTranscription = view.findViewById(R.id.textTranscriptionDialog);
+        //viewTranslation = view.findViewById(R.id.textTranslationDialog);
 
-        viewWord.setText(getArguments().getString("WORD"));
-        viewTranscription.setText(getArguments().getString("TRANSCRIPTION"));
+        viewWord.setText(wordName);
+        viewTranscription.setText(wordTranscription);
+        //viewTranslation.setText(wordTranslation);
 
+        view.findViewById(R.id.wordSoundButton).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                MediaPlayer.create(getActivity(), Uri.parse(wordSoundRes + wordName.toLowerCase() + ".mp3"))
+                        .start();
+            }
+        });
         return view;
     }
 }

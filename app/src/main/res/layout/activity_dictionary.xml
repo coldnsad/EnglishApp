@@ -8,7 +8,8 @@
     android:orientation="vertical"
     android:gravity="center_horizontal"
     android:background="@drawable/main_bg"
-    tools:context=".DictionaryActivity">
+    tools:context=".DictionaryActivity"
+    android:id="@+id/root">
 
     <LinearLayout
         android:layout_width="380dp"
@@ -48,8 +49,8 @@
 
        <androidx.viewpager2.widget.ViewPager2
            android:id="@+id/viewPagerDictionary"
-           android:layout_width="wrap_content"
-           android:layout_height="wrap_content" />
+           android:layout_width="match_parent"
+           android:layout_height="match_parent" />
 
     </LinearLayout>
 
@@ -91,7 +92,7 @@
             android:text="Профиль"
             android:textSize="8pt"
             android:textColor="#80FFFFFF"
-            android:onClick="openSettings" />
+            android:onClick="openProfile" />
 
     </LinearLayout>
 

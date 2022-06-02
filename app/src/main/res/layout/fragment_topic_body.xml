@@ -7,7 +7,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="Lesson 1"
-        android:textSize="30sp"
+        android:textSize="40sp"
         android:textStyle="bold"
         android:textAlignment="center"
         android:paddingBottom="20dp">
@@ -16,13 +16,15 @@
     <ScrollView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content">
+
         <TextView
             android:id="@+id/topicBodyTextView"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="The — определенный артикль. Обозначает «этот», «эти», то есть указывает на что-то конкретное. Употребляется с любыми существительными: исчисляемыми и неисчисляемыми существительными, единственного и множественного числа."
             android:textSize="35sp"
-            android:textStyle="italic"
+            android:textStyle="italic|bold"
+            android:textColor="@color/white"
             android:textAlignment="center">
         </TextView>
 

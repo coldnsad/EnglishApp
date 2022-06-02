@@ -30,6 +30,8 @@ public class DatabaseHelper extends SQLiteOpenHelper {
 
     public static final String COLUMN_WORD_ID = "word_id";
     public static final String COLUMN_WORD_NAME = "word_name";
+    public static final String COLUMN_WORD_TRANSLATION = "word_translation";
+    public static final String COLUMN_WORD_TRANSCRIPTION = "word_transcription";
     public static final String COLUMN_WORD_CATEGORY_ID = COLUMN_CATEGORY_ID;
     //End Words
 
@@ -81,7 +83,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         db.execSQL("INSERT INTO "+ TABLE_CATEGORIES +" (" +
                 COLUMN_CATEGORY_NAME + ") "
                 + "VALUES " +
-                "('Города'), " +
+                "('Человек'), " +
                 "('Животные'), " +
                 "('Глаголы'), " +
                 "('Существительные');");
@@ -92,18 +94,20 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         db.execSQL("CREATE TABLE "+ TABLE_WORDS +" (" +
                 COLUMN_WORD_ID + " INTEGER PRIMARY KEY AUTOINCREMENT," +
                 COLUMN_WORD_NAME + " TEXT," +
+                COLUMN_WORD_TRANSLATION + " TEXT," +
+                COLUMN_WORD_TRANSCRIPTION + " TEXT," +
                 COLUMN_WORD_CATEGORY_ID + " INTEGER);");
         // Inserting data to the Words table
         db.execSQL("INSERT INTO "+ TABLE_WORDS +" (" +
                 COLUMN_WORD_NAME + "," +
-                COLUMN_WORD_CATEGORY_ID + ") " +
+                COLUMN_WORD_CATEGORY_ID + "," +
+                COLUMN_WORD_TRANSLATION + "," +
+                COLUMN_WORD_TRANSCRIPTION + ") " +
                 "VALUES " +
-                "('Elephant', '2'), " +
-                "('Tiger', '2'), " +
-                "('Current', '1'), " +
-                "('Apple', '1');");
+                "('Body', '1', 'Тело', '[ˈbɑːdɪ]'), " +
+                "('Vision', '1', 'Зрение', '[ˈvɪʒn]');");
         //END Words table
-
+        
         //User words table
         //Create table
         db.execSQL("CREATE TABLE "+ TABLE_USER_WORDS +" (" +

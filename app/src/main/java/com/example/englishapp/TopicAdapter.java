@@ -30,7 +30,7 @@ public class TopicAdapter extends RecyclerView.Adapter<TopicAdapter.TopicHolder>
             viewSerialNumber = itemView.findViewById(R.id.topicNumber);
         }
 
-        public TextView getTitileView(){
+        public TextView getTitleView(){
             return viewTitle;
         }
         public TextView getSerialNumberView(){
@@ -59,7 +59,7 @@ public class TopicAdapter extends RecyclerView.Adapter<TopicAdapter.TopicHolder>
     @Override
     public void onBindViewHolder(@NonNull TopicHolder holder, int position) {
         Topic topic = topics.get(position);
-        holder.getTitileView().setText(topic.getTitle());
+        holder.getTitleView().setText(topic.getTitle());
         holder.getSerialNumberView().setText(topic.getSerialNumber());
 
         holder.itemView.setOnClickListener(new View.OnClickListener(){
