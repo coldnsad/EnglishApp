@@ -8,8 +8,13 @@ import androidx.viewpager2.adapter.FragmentStateAdapter;
 
 public class VPAdapterDictionary extends FragmentStateAdapter {
 
+    WordListFragment wordListFragment;
+    CategoryListFragment categoryListFragment;
+
     public VPAdapterDictionary(@NonNull FragmentManager fragmentManager, @NonNull Lifecycle lifecycle) {
         super(fragmentManager, lifecycle);
+        wordListFragment = new WordListFragment();
+        categoryListFragment = new CategoryListFragment();
     }
 
     @NonNull
@@ -17,9 +22,9 @@ public class VPAdapterDictionary extends FragmentStateAdapter {
     public Fragment createFragment(int position) {
 
         if(position == 0){
-            return new WordListFragment();
+            return wordListFragment;
         }
-        return new CategoryListFragment();
+        return categoryListFragment;
     }
 
     @Override

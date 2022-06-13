@@ -7,6 +7,7 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.EditText;
 import android.widget.Toast;
 
 import androidx.fragment.app.Fragment;
@@ -23,8 +24,9 @@ import java.util.List;
  */
 public class TopicListFragment extends Fragment {
 
+    ArrayList<Topic> topics;
+    TopicAdapter topicAdapter;
     private RecyclerView recyclerView;
-    private List<Topic> topics;
     private OnFragmentSendDataListener fragmentSendDataListener;
 
     //Fields for work with database
@@ -60,12 +62,13 @@ public class TopicListFragment extends Fragment {
             }
         };
 
-        recyclerView.setAdapter(new TopicAdapter(GenerateTopics(), topicClickListener));
+        topicAdapter = new TopicAdapter(GenerateTopics(), topicClickListener);
+        recyclerView.setAdapter(topicAdapter);
 
         return view;
     }
 
-    private List<Topic> GenerateTopics() {
+    private ArrayList<Topic> GenerateTopics() {
 
         topics = new ArrayList<>();
 

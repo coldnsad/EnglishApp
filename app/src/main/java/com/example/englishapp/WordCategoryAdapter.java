@@ -8,11 +8,12 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class WordCategoryAdapter extends RecyclerView.Adapter<WordCategoryAdapter.WordCategoryHolder> {
 
-    private final List<WordCategory> categories;
+    private ArrayList<WordCategory> categories;
     private final OnWordCategoryClickListener onClickListener;
 
     interface OnWordCategoryClickListener{
@@ -32,7 +33,7 @@ public class WordCategoryAdapter extends RecyclerView.Adapter<WordCategoryAdapte
         }
     }
 
-    public WordCategoryAdapter(List<WordCategory> categories, OnWordCategoryClickListener onClickListener) {
+    public WordCategoryAdapter(ArrayList<WordCategory> categories, OnWordCategoryClickListener onClickListener) {
         this.categories = categories;
         this.onClickListener = onClickListener;
     }
@@ -68,5 +69,10 @@ public class WordCategoryAdapter extends RecyclerView.Adapter<WordCategoryAdapte
     @Override
     public int getItemCount() {
         return categories.size();
+    }
+
+    public void filterList(ArrayList<WordCategory> filtered){
+        categories = filtered;
+        notifyDataSetChanged();
     }
 }

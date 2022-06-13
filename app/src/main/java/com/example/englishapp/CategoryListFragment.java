@@ -23,8 +23,10 @@ import java.util.List;
  */
 public class CategoryListFragment extends Fragment {
 
+    ArrayList<WordCategory> categories;
+    WordCategoryAdapter wordCategoryAdapter;
+
     private RecyclerView recyclerView;
-    private List<WordCategory> categories;
 
     //Fields for work with database
     private DatabaseHelper databaseHelper;
@@ -58,12 +60,13 @@ public class CategoryListFragment extends Fragment {
             }
         };
 
-        recyclerView.setAdapter(new WordCategoryAdapter(generateCategories(),topicClickListener));
+        wordCategoryAdapter = new WordCategoryAdapter(generateCategories(),topicClickListener);
+        recyclerView.setAdapter(wordCategoryAdapter);
 
         return view;
     }
 
-    private List<WordCategory> generateCategories() {
+    private ArrayList<WordCategory> generateCategories() {
 
         categories = new ArrayList<>();
 

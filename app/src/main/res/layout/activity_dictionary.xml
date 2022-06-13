@@ -19,14 +19,15 @@
         android:gravity="center_horizontal"
         android:orientation="vertical">
 
-        <TextView
-            android:id="@+id/textHeaderSearch"
-            android:layout_width="163dp"
-            android:layout_height="wrap_content"
-            android:text="Search"
-            android:textAlignment="center"
+        <EditText
+            android:id="@+id/editWordCategorySearch"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:hint="Поиск словам"
             android:textColor="@color/white"
-            android:textSize="50sp" />
+            android:layout_margin="16dp"
+            android:textStyle="bold"
+            android:textSize="25sp" />
 
     </LinearLayout>
 

@@ -14,7 +14,7 @@ import java.util.Random;
 
 public class WordAdapter extends RecyclerView.Adapter<WordAdapter.WordHolder> {
 
-    private List<Word> words;
+    private ArrayList<Word> words;
     private final WordAdapter.OnWordClickListener onClickListener;
 
     interface OnWordClickListener{
@@ -45,7 +45,7 @@ public class WordAdapter extends RecyclerView.Adapter<WordAdapter.WordHolder> {
         }
     }
 
-    public WordAdapter(List<Word> words, WordAdapter.OnWordClickListener onClickListener) {
+    public WordAdapter(ArrayList<Word> words, WordAdapter.OnWordClickListener onClickListener) {
         this.words = words;
         this.onClickListener = onClickListener;
     }
@@ -87,6 +87,11 @@ public class WordAdapter extends RecyclerView.Adapter<WordAdapter.WordHolder> {
 
     public void setWordsList(ArrayList<Word> words) {
         this.words = words;
+        notifyDataSetChanged();
+    }
+
+    public void filterList(ArrayList<Word> filtered){
+        words = filtered;
         notifyDataSetChanged();
     }
 }

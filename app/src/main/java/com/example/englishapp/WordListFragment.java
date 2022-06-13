@@ -28,10 +28,10 @@ import java.util.ArrayList;
 
 public class WordListFragment extends Fragment {
 
+    ArrayList<Word> words;
+    WordAdapter wordAdapter;
+
     private RecyclerView recyclerView;
-    private ArrayList<Word> words;
-    private WordAdapter wordAdapter;
-    private Uri uri;
     private String wordSoundRes = "https://www.english-easy.info/talker/words/";
     private OnFragmentSendDataListener fragmentSendDataListener;
 

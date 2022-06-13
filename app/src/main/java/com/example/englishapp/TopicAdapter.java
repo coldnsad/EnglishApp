@@ -8,12 +8,13 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class TopicAdapter extends RecyclerView.Adapter<TopicAdapter.TopicHolder> {
 
-    private final List<Topic> topics;
-    private final OnTopicClickListener onClickListener;
+    private ArrayList<Topic> topics;
+    private OnTopicClickListener onClickListener;
 
     interface OnTopicClickListener{
         void onTopicClick(Topic state, int position);
@@ -38,7 +39,7 @@ public class TopicAdapter extends RecyclerView.Adapter<TopicAdapter.TopicHolder>
         }
     }
 
-    public TopicAdapter(List<Topic> topics, OnTopicClickListener onClickListener) {
+    public TopicAdapter(ArrayList<Topic> topics, OnTopicClickListener onClickListener) {
         this.topics = topics;
         this.onClickListener = onClickListener;
     }
@@ -75,5 +76,10 @@ public class TopicAdapter extends RecyclerView.Adapter<TopicAdapter.TopicHolder>
     @Override
     public int getItemCount() {
         return topics.size();
+    }
+
+    public void filterList(ArrayList<Topic> filtered){
+        topics = filtered;
+        notifyDataSetChanged();
     }
 }

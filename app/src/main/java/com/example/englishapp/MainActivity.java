@@ -9,20 +9,46 @@ import android.content.Intent;
 import android.media.MediaPlayer;
 import android.net.Uri;
 import android.os.Bundle;
+import android.text.Editable;
+import android.text.TextWatcher;
 import android.view.View;
+import android.widget.EditText;
 
 import com.google.android.material.snackbar.Snackbar;
 
 import java.net.URI;
+import java.util.ArrayList;
 
 public class MainActivity extends AppCompatActivity implements TopicListFragment.OnFragmentSendDataListener {
+
+    private EditText editTopicSearch;
+    private TopicListFragment topicListFragment;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        editTopicSearch = findViewById(R.id.editTopicSearch);
+        topicListFragment = new TopicListFragment();
 
-        replaceFragment(new TopicListFragment());
+        replaceFragment(topicListFragment);
+
+        editTopicSearch.addTextChangedListener(new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence charSequence, int i, int i1, int i2) {
+
+            }
+
+            @Override
+            public void onTextChanged(CharSequence charSequence, int i, int i1, int i2) {
+
+            }
+
+            @Override
+            public void afterTextChanged(Editable editable) {
+                filter(editable.toString());
+            }
+        });
     }
 
     private void replaceFragment(Fragment fragment) {
@@ -44,9 +70,18 @@ public class MainActivity extends AppCompatActivity implements TopicListFragment
         startActivity(intent);
     }
 
+    private void filter(String text) {
+        ArrayList<Topic> filtered = new ArrayList<>();
+        for (Topic item: topicListFragment.topics) {
+            if(item.getTitle().toLowerCase().contains(text.toLowerCase())){
+                filtered.add(item);
+            }
+        }
+        topicListFragment.topicAdapter.filterList(filtered);
+    }
+
     @Override
     public void onSendData(String topicId) {
-        /*TopicBodyFragment fragment = new TopicBodyFragment(topicId);
-        replaceFragment(fragment);*/
+
     }
 }
