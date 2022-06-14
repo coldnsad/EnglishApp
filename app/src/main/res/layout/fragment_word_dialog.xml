@@ -6,6 +6,7 @@
     android:layout_height="match_parent"
     android:orientation="horizontal"
     android:gravity="center"
+    android:alpha="1"
     tools:context=".FragmentWordDialog">
 
     <LinearLayout
